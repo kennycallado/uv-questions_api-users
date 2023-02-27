@@ -5,4 +5,4 @@ profile_url = "http://localhost:8001/api/v1/profile"
 # profile_url = "https://questions.kennycallado.dev/api/v1/profile" # users
 
 [default.databases.questions]
-url = "postgres://<user>:<password>@<host>/<db>"
+url = "postgres://users:users@localhost/users"

@@ -7,7 +7,6 @@ mod test;
 
 extern crate openssl;
 
-#[allow(unused_imports)]
 #[macro_use]
 extern crate diesel;
 #[macro_use]
