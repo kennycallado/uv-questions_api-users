@@ -5,4 +5,4 @@ COPY ./Rocket.toml /root
 
 WORKDIR /root
 
-CMD [ "<package-name" ]
+CMD [ "package-name" ]
