@@ -1,0 +1,8 @@
+[default]
+port = 8000
+secret_key = "OQ6ORGl54R2iJFmsABI9+gQ84xC7j4nivkK+WVfrLBI="
+# profile_url = "http://localhost:8001/api/v1/profile" # users
+# profile_url = "https://questions.kennycallado.dev/api/v1/profile" # users
+
+[default.databases.questions]
+url = "postgres://<user>:<password>@<host>/<db>"
