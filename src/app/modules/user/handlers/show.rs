@@ -1,12 +1,15 @@
 // extern
 use rocket::http::Status;
+use rocket::serde::uuid::Uuid;
 use rocket::serde::json::Json;
 
 // app
 use crate::app::providers::guards::admin::AdminClaims;
 use crate::app::providers::guards::coord::CoordClaims;
+use crate::app::providers::guards::robot::RobotClaims;
 use crate::app::providers::guards::thera::TheraClaims;
 use crate::app::providers::guards::user::UserClaims;
+use crate::app::providers::interfaces::claims::UserInClaims;
 use crate::config::database::Db;
 
 // module
@@ -115,5 +118,34 @@ pub async fn get_show_claims(db: Db, user: UserClaims, id: i32) -> Result<Json<U
 
 #[get("/<_id>", rank = 5)]
 pub async fn get_show_none(_id: i32) -> Status {
+    Status::Unauthorized
+}
+
+#[get("/<id>/userinclaims", rank = 1)]
+pub async fn get_show_inclaims_robot(db: Db, _robot: RobotClaims, id: i32) -> Result<Json<UserInClaims>, Status> {
+    let user = user_repository::get_user_expanded_by_id(&db, id).await;
+    if let Err(_) = user {
+        return Err(Status::NotFound);
+    }
+    let mut user = user.unwrap();
+
+    // should update the user_token
+    if user.user_token.is_none() {
+        // The user is not allow to login
+        return Err(Status::NotAcceptable);
+    }
+    user.user_token = Some(Uuid::new_v4().to_string());
+
+    let user_token = user.user_token.clone().unwrap();
+    let user_token = user_repository::update_user_token(&db, user.id, user_token).await;
+
+    match user_token {
+        Ok(_) => Ok(Json(user.into())),
+        Err(_) => return Err(Status::InternalServerError)
+    }
+}
+
+#[get("/<_id>/userinclaims", rank = 5)]
+pub async fn get_show_inclaims_none(_id: i32) -> Status {
     Status::Unauthorized
 }

@@ -1,5 +1,18 @@
 # Questions api uesrs
 
+IMPORTANT:
+	.../user/<id>/userinclaims
+		devuelve un userinclaims
+		acepta robotclaims
+		debe cambiar el user_token
+
+IMPORTANT:
+  Probar que funciona y quitar
+  auth the user
+
+IMPORTANTE
+  Revisar lógica de permisos
+
 ``` bash
 sudo chmod -R o+w target
 ```

@@ -17,6 +17,9 @@ pub fn routes() -> Vec<rocket::Route> {
         show::get_show_thera,
         show::get_show_claims,
         show::get_show_none,
+        // show inclaims
+        show::get_show_inclaims_robot,
+        show::get_show_inclaims_none,
         // create
         create::post_create_admin,
         create::post_create_coord,
