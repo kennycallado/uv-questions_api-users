@@ -16,8 +16,9 @@ pub async fn profile_request(token: String) -> Result<i32, Status> {
     }
     let robot_token = robot_token.unwrap();
 
-    let profile_api_url =
-        ConfigGetter::get_profile_url().unwrap_or("http://localhost:8001/api/v1/profile".to_string()) + "/token";
+    let profile_api_url = ConfigGetter::get_profile_url()
+        .unwrap_or("http://localhost:8001/api/v1/profile".to_string())
+        + "/token";
 
     let client = reqwest::Client::new();
     let res = client

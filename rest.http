@@ -2,22 +2,21 @@
 # export WORKING_URL=questions.kennycallado.dev
 # export WORKING_URL=localhost:8000
 
-# 1 admin  
+# 1 admin  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwidXNlciI6eyJpZCI6MSwiZGVwZW5kc19vbiI6MSwicm9sZSI6eyJpZCI6MSwibmFtZSI6ImFkbWluIn0sInVzZXJfdG9rZW4iOm51bGx9LCJpYXQiOjE2Nzc1NzQxODAsImV4cCI6MTY3NzY2MDU4MH0.hPtqbFNr7h33RsSWKzCr7cXvjaWAloKKB-6FR8MlKGc
 # 2 coord 
 # 4 thera 
 # 7 user  
-#11 user 
+#12 user eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMiIsInVzZXIiOnsiaWQiOjEyLCJkZXBlbmRzX29uIjo0LCJyb2xlIjp7ImlkIjo0LCJuYW1lIjoidXNlciJ9LCJ1c2VyX3Rva2VuIjoiMTJkZjI1YWEtZGE5OS00YjVjLTk4NTItNmEzOWU2ODlmYTM4In0sImlhdCI6MTY3NzU3NTY5NSwiZXhwIjoxNjc4MTgwNDk1fQ.D_6TfgJRr6LRKjl07cF751VINRj8XV12trA0e3kwDaU
 
 GET http://localhost:8000/health
 
-GET http://localhost:8000/api/v1/auth/bypass/1
-
-GET https://questions.kennycallado.dev/api/v1/auth/bypass/1
+#GET https://questions.kennycallado.dev/api/v1/auth/bypass/1
+GET http://localhost:8000/api/v1/auth/bypass/12
 Accept: application/json
 
 GET http://localhost:8000/api/v1/user
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwidXNlciI6eyJpZCI6MSwiZGVwZW5kc19vbiI6MSwicm9sZSI6eyJpZCI6MSwibmFtZSI6ImFkbWluIn0sInVzZXJfdG9rZW4iOiJkOGRlNzBjYS05NzgyLTRmM2UtYjE3YS05ZjdkOGQ1YzJlMzUifSwiaWF0IjoxNjc3NTE0NDc2LCJleHAiOjE2NzgxMTkyNzZ9.pC_vf2bfWCXQectjLWbHMRzI83B4jsPOsyRARw3pyQI
+Authorization: Bearer 
 
 GET http://localhost:8000/api/v1/user/11
 Accept: application/json
@@ -46,11 +45,21 @@ Content-Type: application/json
 {
   "depends_on": 4,
   "role_id": 4,
-  "active": true
+  "active": true,
+  "fcm_token": "1234567890"
+}
+
+PATCH http://localhost:8000/api/v1/user/11/fcm
+Accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMiIsInVzZXIiOnsiaWQiOjEyLCJkZXBlbmRzX29uIjo0LCJyb2xlIjp7ImlkIjo0LCJuYW1lIjoidXNlciJ9LCJ1c2VyX3Rva2VuIjoiMTJkZjI1YWEtZGE5OS00YjVjLTk4NTItNmEzOWU2ODlmYTM4In0sImlhdCI6MTY3NzU3NTY5NSwiZXhwIjoxNjc4MTgwNDk1fQ.D_6TfgJRr6LRKjl07cF751VINRj8XV12trA0e3kwDaU
+Content-Type: application/json
+
+{
+  "1234567890abcd"
 }
 
 
-#POST https://questions.kennycallado.dev/api/v1/auth/login
+# POST https://questions.kennycallado.dev/api/v1/auth/login
 # POST http://{{WORKING_URL}}/api/v1/auth/login
 POST http://localhost:8000/api/v1/auth/login
 Accept: application/json
