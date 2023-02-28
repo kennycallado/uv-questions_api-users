@@ -20,8 +20,6 @@ services:
     expose:
       - "8001:8000"
     environment:
-      # pendiente actualización
-      # - ROCKET_DATABASES={questions={url="postgres://users:users@database/users"}}
-      - ROCKET_DATABASES={question={url="postgres://users:users@database/users"}}
+      - ROCKET_DATABASES={questions={url="postgres://users:users@database/users"}}
       - ROCKET_ADDRESS="0.0.0.0"
       - ROCKET_PORT=8000

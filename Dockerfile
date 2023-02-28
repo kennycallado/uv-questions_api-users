@@ -1,8 +1,8 @@
 FROM busybox:latest
 
-COPY ./target/x86_64-unknown-linux-musl/release/q-api-users /bin/q-api-users
+COPY ./target/x86_64-unknown-linux-musl/release/uv-api-users /bin/uv-api-users
 COPY ./Rocket.toml /root
 
 WORKDIR /root
 
-CMD [ "q-api-users" ]
+CMD [ "uv-api-users" ]
