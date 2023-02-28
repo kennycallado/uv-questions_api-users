@@ -13,6 +13,33 @@ services:
       POSTGRES_PASSWORD: <password>
 #      ROCKET_PROFILE_URL: "http://localhost:8001/profile" # users
 
+  # users_api:
+  #   image: kennycallado/uv-questions_api-auth:v0.1-amd64
+  #   ports:
+  #     - "8001:8000"
+  #   expose:
+  #     - "8001:8000"
+  #   environment:
+  #     - ROCKET_ADDRESS="0.0.0.0"
+  #     - ROCKET_PORT=8000
+  #     - ROCKET_PROFILE_URL="http://localhost:8001/api/v1/profile"
+   
+  # auth_api:
+  #   image: kennycallado/uv-questions_api-auth:v0.1-amd64
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  #   ports:
+  #     - "8002:8000"
+  #   expose:
+  #     - "8002:8000"
+  #   environment:
+  #     - ROCKET_ADDRESS="0.0.0.0"
+  #     - ROCKET_PORT=8000
+  #     - ROCKET_PROFILE_URL="http://localhost:8001/api/v1/profile"
+  #
+  #     - ROCKET_USER_URL="http://host.docker.internal:8000/api/v1/user"
+  #     - ROCKET_USER_URL="http://users_api:8000/api/v1/user"
+
   # profiles_api:
   #   image: kennycallado/uv-questions_api-profiles:v0.1-amd64
   #   ports:
@@ -20,6 +47,6 @@ services:
   #   expose:
   #     - "8001:8000"
   #   environment:
-  #     - ROCKET_DATABASES={question={url="postgres://users:users@database/users"}}
+  #     - ROCKET_DATABASES={questions={url="postgres://users:users@database/users"}}
   #     - ROCKET_ADDRESS="0.0.0.0"
   #     - ROCKET_PORT=8000
