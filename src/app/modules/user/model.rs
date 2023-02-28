@@ -1,11 +1,8 @@
-// Extern level
 use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 
-// App level
 use crate::database::schema::users;
 
-// Module level
 use crate::app::modules::role::model::Role;
 
 #[derive(Debug, Clone, Deserialize, Serialize, Queryable, Identifiable, Associations)]
@@ -18,6 +15,7 @@ pub struct User {
     pub depends_on: i32,
     pub role_id: i32,
     pub user_token: Option<String>,
+    pub fcm_token: Option<String>,
     pub active: bool,
     pub created_at: NaiveDateTime,
     pub updated_at: NaiveDateTime,
@@ -33,19 +31,19 @@ pub struct UserExpanded {
     pub depends_on: User,
     pub role: Role,
     pub user_token: Option<String>,
+    pub fcm_token: Option<String>,
     pub active: bool,
     pub created_at: NaiveDateTime,
     pub updated_at: NaiveDateTime,
 }
 
 #[derive(Debug, Deserialize, Serialize, Insertable, Associations, AsChangeset)]
-// #[diesel(belongs_to(Role))]
-// #[diesel(belongs_to(User, foreign_key = depends_on))]
 #[table_name = "users"]
 #[serde(crate = "rocket::serde")]
 pub struct NewUser {
     pub depends_on: i32,
     pub role_id: i32,
+    pub fcm_token: Option<String>,
     pub active: bool,
 }
 
@@ -54,25 +52,8 @@ impl From<User> for NewUser {
         NewUser {
             depends_on: user.depends_on,
             role_id: user.role_id,
+            fcm_token: user.fcm_token,
             active: user.active,
         }
     }
-}
-
-impl From<UserPut> for NewUser {
-    fn from(user: UserPut) -> Self {
-        NewUser {
-            depends_on: user.depends_on,
-            role_id: user.role_id,
-            active: user.active,
-        }
-    }
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-#[serde(crate = "rocket::serde")]
-pub struct UserPut {
-    pub depends_on: i32,
-    pub role_id: i32,
-    pub active: bool,
 }

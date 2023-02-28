@@ -1,5 +1,6 @@
 use super::handlers::create;
 use super::handlers::index;
+use super::handlers::patch;
 use super::handlers::show;
 use super::handlers::update;
 
@@ -24,7 +25,11 @@ pub fn routes() -> Vec<rocket::Route> {
         // update
         update::put_update_admin,
         update::put_update_coord,
-        update::put_update_thera,
+        // update::put_update_thera,
         update::put_update_none,
+        // patch
+        patch::patch_update_fcm_token_admin,
+        patch::patch_update_fcm_token_user,
+        patch::patch_update_fcm_token_none,
     ]
 }
