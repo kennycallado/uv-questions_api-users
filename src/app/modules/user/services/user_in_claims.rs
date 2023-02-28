@@ -1,4 +1,7 @@
-use crate::app::{modules::user::model::UserExpanded, providers::interfaces::claims::{UserInClaims, RoleInClaims}};
+use crate::app::{
+    modules::user::model::UserExpanded,
+    providers::interfaces::claims::{RoleInClaims, UserInClaims},
+};
 
 impl From<UserExpanded> for UserInClaims {
     fn from(value: UserExpanded) -> Self {

@@ -1,17 +1,12 @@
 # Questions api uesrs
 
-IMPORTANT:
-	.../user/<id>/userinclaims
-		devuelve un userinclaims
-		acepta robotclaims
-		debe cambiar el user_token
-
-IMPORTANT:
-  Probar que funciona y quitar
-  auth the user
+IMPORTANTE
+  Quitar auth de user
 
 IMPORTANTE
-  Revisar lógica de permisos
+  Documentar el uso de compose.yaml
+  para peticiones a host corriendo
+  cargo run
 
 ``` bash
 sudo chmod -R o+w target
@@ -40,7 +35,5 @@ docker push -a kennycallado/uv-questions_api-users
 
 ## TODO:
 
-- Donde uso variable therapist también puede ser coordinator
-- therapist pregunta por user y responde que no...
 - ¿¿ Entidad implementa curd trait ??
 - ¿Crear traits para crud...?

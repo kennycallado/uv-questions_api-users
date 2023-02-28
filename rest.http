@@ -2,16 +2,20 @@
 # export WORKING_URL=questions.kennycallado.dev
 # export WORKING_URL=localhost:8000
 
-# 1 admin  eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwidXNlciI6eyJpZCI6MSwiZGVwZW5kc19vbiI6MSwicm9sZSI6eyJpZCI6MSwibmFtZSI6ImFkbWluIn0sInVzZXJfdG9rZW4iOm51bGx9LCJpYXQiOjE2Nzc1NzQxODAsImV4cCI6MTY3NzY2MDU4MH0.hPtqbFNr7h33RsSWKzCr7cXvjaWAloKKB-6FR8MlKGc
+# 1 admin  
 # 2 coord 
 # 4 thera 
 # 7 user  
-#12 user eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMiIsInVzZXIiOnsiaWQiOjEyLCJkZXBlbmRzX29uIjo0LCJyb2xlIjp7ImlkIjo0LCJuYW1lIjoidXNlciJ9LCJ1c2VyX3Rva2VuIjoiMTJkZjI1YWEtZGE5OS00YjVjLTk4NTItNmEzOWU2ODlmYTM4In0sImlhdCI6MTY3NzU3NTY5NSwiZXhwIjoxNjc4MTgwNDk1fQ.D_6TfgJRr6LRKjl07cF751VINRj8XV12trA0e3kwDaU
+#12 user 
 
 GET http://localhost:8000/health
 
-#GET https://questions.kennycallado.dev/api/v1/auth/bypass/1
-GET http://localhost:8000/api/v1/auth/bypass/12
+GET http://localhost:8001/health
+
+GET http://localhost:8002/health
+
+#GET https://questions.kennycallado.dev/auth/bypass/1
+GET http://localhost:8002/auth/bypass/1
 Accept: application/json
 
 GET http://localhost:8000/api/v1/user
@@ -51,7 +55,7 @@ Content-Type: application/json
 
 PATCH http://localhost:8000/api/v1/user/11/fcm
 Accept: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMiIsInVzZXIiOnsiaWQiOjEyLCJkZXBlbmRzX29uIjo0LCJyb2xlIjp7ImlkIjo0LCJuYW1lIjoidXNlciJ9LCJ1c2VyX3Rva2VuIjoiMTJkZjI1YWEtZGE5OS00YjVjLTk4NTItNmEzOWU2ODlmYTM4In0sImlhdCI6MTY3NzU3NTY5NSwiZXhwIjoxNjc4MTgwNDk1fQ.D_6TfgJRr6LRKjl07cF751VINRj8XV12trA0e3kwDaU
+Authorization: Bearer 
 Content-Type: application/json
 
 {
@@ -59,9 +63,9 @@ Content-Type: application/json
 }
 
 
-# POST https://questions.kennycallado.dev/api/v1/auth/login
-# POST http://{{WORKING_URL}}/api/v1/auth/login
-POST http://localhost:8000/api/v1/auth/login
+#POST http://{{WORKING_URL}}/api/v1/auth/login
+#POST http://localhost:8002/auth/login
+POST https://questions.kennycallado.dev/auth/login
 Accept: application/json
 Content-Type: application/json
 

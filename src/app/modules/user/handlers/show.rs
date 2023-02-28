@@ -1,7 +1,7 @@
 // extern
 use rocket::http::Status;
-use rocket::serde::uuid::Uuid;
 use rocket::serde::json::Json;
+use rocket::serde::uuid::Uuid;
 
 // app
 use crate::app::providers::guards::admin::AdminClaims;
@@ -122,7 +122,11 @@ pub async fn get_show_none(_id: i32) -> Status {
 }
 
 #[get("/<id>/userinclaims", rank = 1)]
-pub async fn get_show_inclaims_robot(db: Db, _robot: RobotClaims, id: i32) -> Result<Json<UserInClaims>, Status> {
+pub async fn get_show_inclaims_robot(
+    db: Db,
+    _robot: RobotClaims,
+    id: i32,
+) -> Result<Json<UserInClaims>, Status> {
     let user = user_repository::get_user_expanded_by_id(&db, id).await;
     if let Err(_) = user {
         return Err(Status::NotFound);
@@ -141,7 +145,7 @@ pub async fn get_show_inclaims_robot(db: Db, _robot: RobotClaims, id: i32) -> Re
 
     match user_token {
         Ok(_) => Ok(Json(user.into())),
-        Err(_) => return Err(Status::InternalServerError)
+        Err(_) => return Err(Status::InternalServerError),
     }
 }
 
