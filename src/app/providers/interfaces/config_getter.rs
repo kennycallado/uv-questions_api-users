@@ -24,6 +24,13 @@ impl ConfigGetter {
             .unwrap()
             .user_url
     }
+    #[allow(unused)]
+    pub fn get_form_url() -> Option<String> {
+        rocket::Config::figment()
+            .extract::<ConfigGetter>()
+            .unwrap()
+            .form_url
+    }
 
     pub fn get_secret_key() -> Option<String> {
         rocket::Config::figment()
