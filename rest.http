@@ -10,52 +10,9 @@
 
 GET http://localhost:8000/health
 
-GET http://localhost:8000/api/v1/auth/bypass/4
+#GET http://localhost:8003/api/v1/auth/bypass/4
 
-GET https://questions.kennycallado.dev/api/v1/auth/bypass/1
-Accept: application/json
-
-GET http://localhost:8000/api/v1/user
-Accept: application/json
-Authorization: Bearer 
-
-GET http://localhost:8000/api/v1/user/11
-Accept: application/json
-Authorization: Bearer 
-
-POST http://localhost:8000/api/v1/user
-Accept: application/json
-Authorization: Bearer 
-Content-Type: application/json
-
-{
-  "depends_on": 1,
-  "role_id": 4,
-  "active": false
-}
-
-GET http://localhost:8000/api/v1/user/12
-Accept: application/json
-Authorization: Bearer 
-
-PUT http://localhost:8000/api/v1/user/12
-Accept: application/json
-Authorization: Bearer 
-Content-Type: application/json
-
-{
-  "depends_on": 4,
-  "role_id": 4,
-  "active": true
-}
-
-
-#POST http://localhost:8000/api/v1/auth/login
-#POST https://questions.kennycallado.dev/api/v1/auth/login
-POST http://{{WORKING_URL}}/api/v1/auth/login
-Accept: application/json
-Content-Type: application/json
-
-{
-  "admin"
-}
+#GET http://localhost:8000/api/v1/user
+#Accept: application/json
+#Authorization: Bearer 
+#Content-Type: application/json
