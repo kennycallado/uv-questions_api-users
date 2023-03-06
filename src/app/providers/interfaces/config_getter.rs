@@ -6,6 +6,7 @@ pub struct ConfigGetter {
     pub profile_url: Option<String>,
     pub user_url: Option<String>,
     pub secret_key: Option<String>,
+    pub form_url: Option<String>,
 }
 
 impl ConfigGetter {
