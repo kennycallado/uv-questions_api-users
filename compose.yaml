@@ -8,11 +8,9 @@ services:
     expose:
       - "5432:5432"
     environment:
-<<<<<<< HEAD
       POSTGRES_DB: users
       POSTGRES_USER: users
       POSTGRES_PASSWORD: users
-      ROCKET_PROFILE_URL: "http://localhost:8001/api/v1/profile" # users
 
   profiles_api:
     image: kennycallado/uv-questions_api-profiles:v0.1-amd64
@@ -38,55 +36,3 @@ services:
       - ROCKET_PORT=8000
       - ROCKET_PROFILE_URL="http://localhost:8001/api/v1/profile"
       - ROCKET_USER_URL="http://host.docker.internal:8000/api/v1/user"
-=======
-      POSTGRES_DB: <db>
-      POSTGRES_USER: <user>
-      POSTGRES_PASSWORD: <password>
-
-  # auth_api:
-  #   image: kennycallado/uv-questions_api-auth:v0.1-amd64
-  #   extra_hosts:
-  #     - "host.docker.internal:host-gateway"
-  #   ports:
-  #     - "8003:8000"
-  #   expose:
-  #     - "8003:8000"
-  #   environment:
-  #     - ROCKET_ADDRESS="0.0.0.0"
-  #     - ROCKET_PORT=8000
-  #     - ROCKET_PROFILE_URL="http://profiles_api:8001/api/v1/profile"
-  #     - ROCKET_USER_URL="http://users_api:8002/api/v1/user"
-  #     # - ROCKET_LOG_LEVEL="debug"
-  #     # - ROCKET_USER_URL="http://host.docker.internal:8000/api/v1/user"
-  #   depends_on:
-  #     - users_api
-  #     - profiles_api
-
-  # profiles_api:
-  #   image: kennycallado/uv-questions_api-profiles:v0.1-amd64
-  #   ports:
-  #     - "8001:8000"
-  #   expose:
-  #     - "8001:8000"
-  #   environment:
-  #     - ROCKET_DATABASES={questions={url="postgres://forms:forms@database/forms"}}
-  #     - ROCKET_ADDRESS="0.0.0.0"
-  #     - ROCKET_PORT=8000
-  #   depends_on:
-  #     - database
-
-  # users_api:
-  #   image: kennycallado/uv-questions_api-users:v0.1-amd64
-  #   ports:
-  #     - "8002:8000"
-  #   expose:
-  #     - "8002:8000"
-  #   environment:
-  #     - ROCKET_DATABASES={questions={url="postgres://forms:forms@database/forms"}}
-  #     - ROCKET_ADDRESS="0.0.0.0"
-  #     - ROCKET_PORT=8000
-  #     - ROCKET_PROFILE_URL="http://profiles_api:8001/api/v1/profile"
-  #     # - ROCKET_LOG_LEVEL="debug"
-  #   depends_on:
-  #     - database
->>>>>>> base
